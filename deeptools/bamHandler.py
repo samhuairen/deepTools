@@ -9,8 +9,8 @@ def countReadsInInterval(args):
     bam = openBam(fname)
     mapped = 0
     unmapped = 0
-    for b in bam.fetch(chrom, start, end):
-        if chrom == "*":
+    for b in bam.fetch(chrom, start, end):  # I do not understand why we fetch a chromosome with a name "*"
+        if chrom == "*":                    # 
             unmapped += 1
             continue
         if b.pos < start:
